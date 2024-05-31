@@ -1,0 +1,16 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "My Quarto Project"
+  navbar:
+    left:
+      - text: "Home"
+        href: website.qmd
+      - text: "Analysis Results"
+        href: analysis.qmd
+      - text: "Personal Thoughts"
+        href: thoughts.qmd
+      - text: "References"
+        href: references.qmd
