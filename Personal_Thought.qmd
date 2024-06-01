@@ -1,0 +1,6 @@
+---
+title: "Personal Thought"
+format: html
+author: Karuni
+date: last-modified
+---

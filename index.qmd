@@ -2,7 +2,6 @@
 title: "My Quarto Ploject"
 format: html
 date: last-modified
-theme: zephyr
 author:
   - name: Karuni
 　- email: Karuni.117r@gmail.com

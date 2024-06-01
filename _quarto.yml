@@ -1,16 +1,39 @@
 project:
   type: website
   output-dir: docs
-
 website:
   title: "My Quarto Project"
   navbar:
     left:
-      - text: "Home"
-        href: website.qmd
       - text: "Analysis Results"
         href: analysis.qmd
-      - text: "Personal Thoughts"
-        href: thoughts.qmd
+      - text: "Personal Thought"
+        href: Personal_Thought.qmd
       - text: "References"
         href: references.qmd
+      - text: "About me"
+        href: About_me.qmd
+  sidebar:
+    left:
+    style: "docked"
+    collapse-level: 1
+    search: true
+    contents:
+      - section: "Analysis Result"  
+        contents: 
+            - text: "日本歳出"
+              contents: Japan_Expenditure.qmd
+            - text: "省庁の費用"
+              contents: ministry_expenses.qmd
+      - section: "Parsonal Thought"
+        contents: 
+            - text: "PCおすすめ"
+              href: PC.qmd
+format: 
+  html: 
+    margin:
+      bottom: 0.5in
+      top: 0.5in
+      left: 0.5in
+      right: 0.5in
+      toc: true

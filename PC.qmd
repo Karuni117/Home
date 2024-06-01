@@ -1,0 +1,56 @@
+---
+title: "PC"
+editor: visual
+---
+
+#### 必要スペック
+
+#### CPU
+
+-   Intel Core i5 以上
+
+-   AMD Ryzen 5　以上
+
+    世代が古い場合、i5　Ryzen 5 ではスペックを満たせない場合も
+
+#### メモリ
+
+-   16GB 以上
+
+    IDEやブラウザを同時に起動するなど、メモリを多く使用する場合が多いため16GB以上を推奨
+
+#### ストレージ
+
+-   SSD (256GB以上)
+
+#### 画面サイズ
+
+-   13インチ～15インチ
+
+#### おすすめPC
+
+-   Inspiron 13
+
+    -   CPU : Core Ultra 5 125H (PassMark : 21250)
+
+    -   メモリ : 16GB
+
+    -   ストレージ 512GB
+
+    -   132,037円
+
+-   XPS 13
+
+    -   CPU : Core Ultra 5 125H (PassMark : 21250)
+
+        : Snapdragon X Elite X1E-80-100
+
+    -   メモリ : 16GB
+
+    -   ストレージ : 512GB
+
+    -   Core : 229,980円　
+
+    -   Snapdragon : 249,980円
+
+-   

@@ -1,2 +1,0 @@
-[1,"==> quarto preview references.qmd --to html --no-watch-inputs --no-browse\n\n"]
-[1,"ERROR: YAMLException: duplicated mapping key (C:\\デスクトップ\\R_studio\\website\\_quarto.yml, 8:9)\n7:         href: index.qmd\n8:         href: analysis.qmd\n          ~~\n9:         href: references.qmd\n"]
