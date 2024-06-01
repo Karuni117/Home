@@ -25,10 +25,16 @@ website:
               href: Japan_Expenditure.qmd
             - text: "省庁の費用"
               href: ministry_expenses.qmd
+      - section: "Personal Thought"
+        contents: 
+            - text: 
+              href: 
       - section: "About me"
         contents: 
             - text: "PCおすすめ"
               href: PC.qmd
+            - text: "My book"
+              href: Book.qmd
 format: 
   html: 
     margin:

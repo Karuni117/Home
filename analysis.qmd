@@ -4,5 +4,3 @@ format: html
 ---
 
 #### 分析結果
-
-[2019年～2024年歳出](Japan_Expenditure.qmd)
