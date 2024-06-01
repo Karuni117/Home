@@ -22,9 +22,9 @@ website:
       - section: "Analysis Result"  
         contents: 
             - text: "日本歳出"
-              contents: Japan_Expenditure.qmd
+              href: Japan_Expenditure.qmd
             - text: "省庁の費用"
-              contents: ministry_expenses.qmd
+              href: ministry_expenses.qmd
       - section: "Parsonal Thought"
         contents: 
             - text: "PCおすすめ"
