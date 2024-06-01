@@ -87,3 +87,14 @@ date: last-modified
 -   AMD Ryzen 7 7735U / PassMark : 21340
 
 -   AMD Ryzen 5 8640U (不明)
+
+
+#### 参照
+
+[DELL](https://www.dell.com/ja-jp) (アクセス日2024年6月1日) 
+
+[HP  ](https://www.hp.com/jp-ja/home.html) (アクセス日2024年6月1日)
+
+[ASUS](https://www.asus.com/jp/) (アクセス日2024年6月1日)
+
+[PassMark SOFTWARE](https://www.cpubenchmark.net/) (アクセス日2024年6月1日)
