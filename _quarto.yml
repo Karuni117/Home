@@ -25,7 +25,7 @@ website:
               href: Japan_Expenditure.qmd
             - text: "省庁の費用"
               href: ministry_expenses.qmd
-      - section: "Parsonal Thought"
+      - section: "About me"
         contents: 
             - text: "PCおすすめ"
               href: PC.qmd
