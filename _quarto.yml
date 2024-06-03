@@ -27,8 +27,8 @@ website:
               href: ministry_expenses.qmd
       - section: "Personal Thought"
         contents: 
-            - text: 
-              href: 
+            - text: "プログラミング言語一覧" 
+              href: Programming.qmd
       - section: "About me"
         contents: 
             - text: "PCおすすめ"
