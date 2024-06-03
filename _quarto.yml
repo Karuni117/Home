@@ -29,6 +29,10 @@ website:
         contents: 
             - text: "プログラミング言語一覧" 
               href: Programming.qmd
+            - text: "AI"
+              href: AI.qmd
+            - text: 
+              href: 
       - section: "About me"
         contents: 
             - text: "PCおすすめ"
