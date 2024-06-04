@@ -1,5 +1,5 @@
 ---
-title: "PC"
+title: "PC選び方"
 editor: visual
 author: Karuni
 date: last-modified
@@ -36,7 +36,7 @@ date: last-modified
     #### Dell
 
 | Dell           | Inspiron 13  | XPS 13        | XPS13                         |
-|----------------|----------------|----------------|--------------------------|
+|----------------|----------------|----------------|-----------------------|
 | CPU            | Ultra 5 125H | Ultra 5 125 H | Snapdragon X Elite X1E-80-100 |
 | グラフィックス | Intel Arc    | Intel Arc     | Qualcomm Adreno GPU           |
 | メモリ         | 16GB         | 16GB          | 16GB                          |
@@ -55,7 +55,7 @@ date: last-modified
 #### ASUS
 
 | ASUS           | Zenbook 14 OLED UX3405MA | Zenbook 14 OLED UX3405MA | Zenbook 14 OLED UX3405MA |
-|-----------------|-------------------|-------------------|-------------------|
+|------------------|------------------|------------------|------------------|
 | CPU            | Core Ultra 5 125H        | Ultra 7 155H             | Ultra 9 185H             |
 | グラフィックス | Intel Arc                | Intel Arc                | Intel Arc                |
 | メモリ         | 16GB                     | 16GB                     | 32GB                     |
@@ -88,12 +88,11 @@ date: last-modified
 
 -   AMD Ryzen 5 8640U (不明)
 
-
 #### 参照
 
-[DELL](https://www.dell.com/ja-jp) (アクセス日2024年6月1日) 
+[DELL](https://www.dell.com/ja-jp) (アクセス日2024年6月1日)
 
-[HP  ](https://www.hp.com/jp-ja/home.html) (アクセス日2024年6月1日)
+[HP](https://www.hp.com/jp-ja/home.html) (アクセス日2024年6月1日)
 
 [ASUS](https://www.asus.com/jp/) (アクセス日2024年6月1日)
 

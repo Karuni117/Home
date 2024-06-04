@@ -2,14 +2,14 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "My Quarto Project"
+  title: "Quarto & R Insight Hub"
   navbar:
     left:
       - text: "Analysis Results"
         href: analysis.qmd
       - text: "Personal Thought"
         href: Personal_Thought.qmd
-      - text: "References"
+      - text: "Lerning Reflections"
         href: references.qmd
       - text: "About me"
         href: About_me.qmd
@@ -33,6 +33,10 @@ website:
               href: AI.qmd
             - text: 
               href: 
+      - section: "Learning Reflections"
+        contents: 
+            - text: "貸借対照表"
+              href: BS.qmd
       - section: "About me"
         contents: 
             - text: "PCおすすめ"

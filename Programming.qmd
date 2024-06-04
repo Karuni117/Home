@@ -7,67 +7,119 @@ editor: visual
 
 1.  システムプログラミング・低レベル言語
     -   C: OSやデバイスドライバの開発に使用。高速だが低レベル。
+
         -   IDE: Visual Studio, Code::Blocks, Eclipse CDT
+
     -   C++: C言語の拡張。オブジェクト指向、ゲーム開発に人気。
+
         -   IDE: Visual Studio, CLion, QtCreator
+
     -   Rust: メモリ安全性と並行性に優れた現代的な言語。
+
         -   IDE: IntelliJ IDEA (Rust plugin), Visual Studio Code (rust-analyzer)
+
     -   Go: Googleが開発。並行処理とスケーラビリティに優れる。
+
         -   IDE: GoLand, Visual Studio Code (Go extension)
+
     -   Assembly: 直接機械語を操作。最も低レベルな言語。
+
         -   IDE: MASM32, NASM, FASM
+
     -   Ada: 高信頼性システム向け。航空宇宙分野で使用。
+
         -   IDE: GNAT Programming Studio, AdaGIDE
 2.  Web開発（フロントエンド）
     -   JavaScript: Web開発の基本。動的なページ作成に不可欠。
+
         -   IDE: Visual Studio Code, WebStorm, Sublime Text
+
     -   TypeScript: JavaScriptに型を追加。大規模開発向け。
+
         -   IDE: Visual Studio Code, WebStorm, Visual Studio
+
     -   Elm: 関数型言語。バグの少ないUI構築を目指す。
+
         -   IDE: Atom (elm-format), Visual Studio Code (Elm extension)
+
     -   Dart: Google製。Flutterフレームワークで使用。
+
         -   IDE: Android Studio (Flutter), Visual Studio Code (Dart extension)
 3.  Web開発（バックエンド）
     -   PHP: サーバーサイドスクリプト言語。WordPressで有名。
+
         -   IDE: PhpStorm, Eclipse PDT, NetBeans
+
     -   Ruby: 生産性の高い言語。Ruby on Railsが人気。
+
         -   IDE: RubyMine, Visual Studio Code (Ruby extension)
+
     -   Python: 簡潔で読みやすい。DjangoやFlaskが人気。
+
         -   IDE: PyCharm, Visual Studio Code, Spyder
+
     -   Java: 企業向けWebアプリに。大規模システムに適する。
+
         -   IDE: Eclipse, IntelliJ IDEA, NetBeans
+
     -   C# (.NET): Microsoftの言語。Windows環境で強い。
+
         -   IDE: Visual Studio, Visual Studio Code (C# extension)
+
     -   Go: 高速な処理が必要なWebサービスに適する。
+
         -   IDE: GoLand, Visual Studio Code (Go extension)
 4.  モバイルアプリ開発
     -   Java: 長年のAndroidアプリ開発の主流。
+
         -   IDE: Android Studio, Eclipse ADT
+
     -   Kotlin: GoogleがAndroid開発の公式言語に指定。
+
         -   IDE: Android Studio, IntelliJ IDEA
+
     -   Swift: Apple製。iOSアプリ開発用に設計。
+
         -   IDE: Xcode
+
     -   Objective-C: 古いiOSアプリで使用。Swiftに置き換わりつつある。
+
         -   IDE: Xcode
+
     -   React Native: JavaScriptベース。iOS/Android両対応。
+
         -   IDE: Visual Studio Code, WebStorm (React extensions)
+
     -   Xamarin (C#): MicrosoftのC#ベースのクロスプラットフォーム。
+
         -   IDE: Visual Studio, Visual Studio for Mac
 5.  データ科学・機械学習
     -   Python: NumPy, Pandas, TensorFlowなど豊富なライブラリ。
+
         -   IDE: Jupyter Notebook, PyCharm, Spyder
+
     -   R: 統計解析と可視化に特化。
+
         -   IDE: RStudio, Visual Studio Code (R extension)
-    -   Julia: 科学技術計算向け。高速で柔軟。
+
+    -   Julia: 科学技術計算向け。高速で柔軟
+
         -   IDE: Julia Studio, Visual Studio Code (Julia extension)
+
     -   MATLAB: 科学技術計算の老舗。シグナル処理に強い。
+
         -   IDE: MATLAB IDE
+
     -   SAS: 大規模データ分析用。企業や医療分野で。
+
         -   IDE: SAS Studio, SAS Enterprise Guide
+
     -   Scala: 関数型言語。Apache Sparkを利用したビッグデータ処理。
+
         -   IDE: IntelliJ IDEA, Eclipse (Scala IDE plugin)
 6.  データベース関連
     -   SQL: リレーショナルデータベースの標準言語。
+    
         -   IDE: MySQL Workbench, SQL Server Management Studio, pgAdmin
 
 #### 🤖 情報提供: Claude by Anthropic
