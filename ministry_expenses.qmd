@@ -1,6 +1,5 @@
 ---
-title: "ministry_expenses"
-author: Kawano Kazuki
+title: "2019年度～2024年度省庁の費用"
 date: last-modified
 format: html
 ---

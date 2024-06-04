@@ -1,7 +1,6 @@
 ---
-title: "Japan_Expenditure"
+title: "2019年度から2024年度歳出"
 format: html
-author: Kawano Kazuki 
 date: last-modified
 ---
 
