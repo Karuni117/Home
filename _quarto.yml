@@ -13,6 +13,9 @@ website:
         href: references.qmd
       - text: "About me"
         href: About_me.qmd
+    tools:
+      - icon: card-text
+        href: Ideal.qmd
   sidebar:
     left:
     style: "docked"

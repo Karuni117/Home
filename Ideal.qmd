@@ -1,0 +1,4 @@
+---
+title: "Ideal"
+editor: visual
+---

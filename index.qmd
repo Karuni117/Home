@@ -2,9 +2,7 @@
 title: "Welcome to Quarto & R Insight Hub"
 format: html
 date: last-modified
-author:
-  - name: Karuni
-　- email: Karuni.117r@gmail.com
+email: Karuni.117r@gmail.com
 ---
 
 #### サイトの目的
