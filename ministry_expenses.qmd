@@ -402,12 +402,13 @@ Japan_df_long <- Japan_df_long |>
                            "MLIT"           = "国土交通省",
                            "MOE"            = "環境省",
                            "MOD"            = "防衛省",
-                           "revenue"        = "歳出"))
+                           "revenue"        = "歳入"))
 
+options(repr.plot.width = 16,repr.plot.height = 9)
 ggplot(Japan_df_long, aes(x = Year, y = Value, fill = Category)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(title = "日本国省庁別予算（2024）", x = "Year", y = "Value") +
-  theme_minimal()
+  theme_minimal(base_size = 12)
 
 
 
