@@ -24,7 +24,7 @@ email: Karuni.117r@gmail.com
     -   CPU:11th Gen Intel(R) Core(TM)i5-1135G7 \@ 2.40GHz 2.42GHz
     -   RAM:8GB
 -   OS:Windows
--   コード管理 :Github 
+-   コード管理 :Github
 -   使用言語 :R言語
 -   統合開発環境(IDE) :RStudio
 

@@ -3,6 +3,7 @@ project:
   output-dir: docs
 website:
   title: "Quarto & R Insight Hub"
+  
   navbar:
     left:
       - text: "Analysis Results"
@@ -11,11 +12,17 @@ website:
         href: Personal_Thought.qmd
       - text: "Lerning Reflections"
         href: references.qmd
-      - text: "About me"
-        href: About_me.qmd
+      - text: "My Interests"
+        href: Interests.qmd
     tools:
       - icon: card-text
-        href: Ideal.qmd
+        menu:
+          - text: "My Page"
+            href: About_me.qmd
+          - text: "Ideal Resume"
+            href: Ideal.qmd  
+          - text: "My book"
+            href: Book.qmd
   sidebar:
     left:
     style: "docked"
@@ -40,12 +47,13 @@ website:
         contents: 
             - text: "貸借対照表"
               href: BS.qmd
-      - section: "About me"
+      - section: "My Interests"
         contents: 
             - text: "PCおすすめ"
               href: PC.qmd
-            - text: "My book"
-              href: Book.qmd
+            - text: "仮想通貨"
+              href: Crypto.qmd
+            
 format: 
   html: 
     margin:

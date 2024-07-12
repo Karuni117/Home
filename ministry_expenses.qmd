@@ -25,6 +25,8 @@ MLIT            <- c(7022326883000,6898261553000,6057791114000,6030726064000,605
 MOE             <- c(345945274000,353720637000,323285636000,329146485000,325754157000,320712419000)                   #環境省
 MOD             <- c(5257439983000,5313345107000,5323546421000,5368725109000,6787965446000,7917176714000)             #防衛省
 revenue         <- c(101457093570000,102657971326000,106609707875000,107596424558000,114381235569000,112571688422000) #歳入
+
+Japan_df <- data.frame(Year,Imperial, Diet, Court, Accounting, Cabinet, Cabinet_Office, MIC, Justice, Foreign, Education, MHLW, MAFF, METI, MLIT, MOE, MOD, revenue)
 ```
 
 ```{r}
@@ -75,23 +77,278 @@ revenue_df        <- data.frame( Year , revenue        )
 
 ```{r}
 #グラフ化
-library(datarium)
-plot( revenue_df       ,type = "l" )          
-plot( Imperial_df      ,type = "l" )  　　　　# 皇室
-plot( Diet_df          ,type = "l" )　 　　　 # 国会
-plot( Court_df         ,type = "l" )　　　　　# 裁判所
-plot( Accounting_df    ,type = "l" )　　　 　 # 会計検査院
-plot( Cabinet_df       ,type = "l" )       　 # 内閣
-plot( Cabinet_Office_df,type = "l" )　　      # 内閣府
-plot( MIC_df           ,type = "l" )　　　　　# 総務省
-plot( Justice_df       ,type = "l" )　　　　　# 法務省
-plot( Foreign_df       ,type = "l" )　　　　　# 外務省
-plot( Finance_df       ,type = "l" )　　　　　# 財務省
-plot( Education_df     ,type = "l" )　　　　　# 文部科学省
-plot( MHLW_df          ,type = "l" )　　　　　# 厚生労働省
-plot( MAFF_df          ,type = "l" )　　 　　 # 農林水産省
-plot( METI_df          ,type = "l" )　 　　　 # 経済産業省
-plot( MLIT_df          ,type = "l" )　　　 　 # 国土交通省
-plot( MOE_df           ,type = "l" )　　　　　# 環境省
-plot( MOD_df           ,type = "l" )　　　　　# 防衛省
+#Japan_df |> 
+  #ggplot()+
+  #geom_col(aes(x = Year, y = Japan_df[2:17]))
+
+revenue_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = revenue))+
+  labs(x = "年度", y = "歳入費用" )
+Imperial_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Imperial))+
+  labs(x = "年度", y = "皇室費用" )# 皇室
+
+Diet_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Diet))+
+  labs(x = "年度", y = "国会費用" )# 国会
+
+Court_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Court))+
+  labs(x = "年度", y = "裁判所費用" ) # 裁判所
+
+Accounting_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Accounting))+
+  labs(x = "年度", y = "会計検査院費用" ) # 会計検査院
+
+Cabinet_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Cabinet))+
+  labs(x = "年度", y = "内閣費用" ) # 内閣
+
+Cabinet_Office_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Cabinet_Office))+
+  labs(x = "年度", y = "内閣府費用" ) # 内閣府
+
+MIC_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = MIC))+
+  labs(x = "年度", y = "総務省費用" ) # 総務省
+
+Justice_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Justice))+
+  labs(x = "年度", y = "法務省費用" ) # 法務省
+
+Foreign_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Foreign))+
+  labs(x = "年度", y = "外務省費用" ) # 外務省
+
+Finance_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Finance))+
+  labs(x = "年度", y = "財務省費用" ) # 財務省
+
+Education_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = Education))+
+  labs(x = "年度", y = "文部科学省費用" ) # 文部科学省
+
+MHLW_df |>  
+  ggplot() +
+  geom_col(aes(x = Year, y = MHLW))+
+  labs(x = "年度", y = "厚生労働省費用" ) # 厚生労働省
+
+MAFF_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = MAFF))+
+  labs(x = "年度", y = "農林水産省費用" ) # 農林水産省
+
+METI_df |>
+  ggplot() +
+  geom_col(aes(x = Year, y = METI))+
+  labs(x = "年度", y = "経済産業省費用" ) # 経済産業省
+
+MLIT_df |>
+  ggplot() +
+  geom_col(aes(x = Year, y = MLIT))+
+  labs(x = "年度", y = "国土交通省費用" ) # 国土交通省
+
+MOE_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = MOE))+
+  labs(x = "年度", y = "環境省費用" ) # 環境省
+
+MOD_df |> 
+  ggplot() +
+  geom_col(aes(x = Year, y = MOD))+
+  labs(x = "年度", y = "防衛省費用" ) # 防衛省
+```
+
+```{r}
+Year1 <- Year[2:6]
+revenue1 <- revenue[1:5]
+revenue2 <- revenue[2:6]
+revenue_Change <- revenue2 / revenue1 * 100
+revenue_Change_df <- data.frame(Year1,revenue_Change)
+
+Imperial1 <- Imperial[1:5]
+Imperial2 <- Imperial[2:6]
+Imperial_Change <- Imperial2 / Imperial1 * 100
+Imperial_Change_df <- data.frame(Year1,Imperial_Change)
+
+Diet1 <- Diet[1:5]
+Diet2 <- Diet[2:6]
+Diet_Change <- Diet2 / Diet1 * 100
+Diet_Change_df <- data.frame(Year1,Diet_Change)
+
+Court1 <- Court[1:5]
+Court2 <- Court[2:6]
+Court_Change <- Court2 / Court1 * 100
+Court_Change_df <- data.frame(Year1,Court_Change)
+
+Accounting1 <- Accounting[1:5]
+Accounting2 <- Accounting[2:6]
+Accounting_Change <- Accounting2 /Accounting1 * 100
+Accounting_Change_df <- data.frame(Year1,Accounting_Change)
+
+Cabinet1 <- Cabinet[1:5]
+Cabinet2 <- Cabinet[2:6]
+Cabinet_Change <- Cabinet2 / Cabinet1 * 100
+Cabinet_Change_df <- data.frame(Year1,Cabinet_Change)
+
+Cabinet_Office1 <- Cabinet_Office[1:5]
+Cabinet_Office2 <- Cabinet_Office[2:6]
+Cabinet_Office_Change <- Cabinet_Office2 /Cabinet_Office1 * 100
+Cabinet_Office_Change_df <- data.frame(Year1,Cabinet_Office_Change)
+
+MIC1 <- MIC[1:5]
+MIC2 <- MIC[2:6]
+MIC_Change <- MIC2 / MIC1 * 100
+MIC_Change_df <- data.frame(Year1,MIC_Change)
+
+Justice1 <- Justice[1:5]
+Justice2 <- Justice[2:6]
+Justice_Change <- Justice2 / Justice1 * 100
+Justice_Change_df <- data.frame(Year1,Justice_Change)
+
+Foreign1 <- Foreign[1:5]
+Foreign2 <- Foreign[2:6]
+Foreign_Change <- Foreign2 / Foreign1 * 100
+Foreign_Change_df <- data.frame(Year1,Foreign_Change)
+
+Finance1 <- Finance[1:5]
+Finance2 <- Finance[2:6]
+Finance_Change <- Finance2 /Finance1 *100
+Finance_Change_df <- data.frame(Year1,Finance_Change)
+
+Education1 <- Education[1:5]
+Education2 <- Education[2:6]
+Education_Change <- Education2 / Education1 * 100
+Education_Change_df <- data.frame(Year1,Education_Change)
+
+MHLW1 <- MHLW[1:5]
+MHLW2 <- MHLW[2:6]
+MHLW_Change <- MHLW2 / MHLW1 * 100
+MHLW_Change_df <- data.frame(Year1,MHLW_Change)
+
+MAFF1 <- MAFF[1:5]
+MAFF2 <- MAFF[2:6]
+MAFF_Change <- MAFF2 / MAFF1 *100
+MAFF_Change_df <- data.frame(Year1,MAFF_Change)
+
+METI1 <- METI[1:5]
+METI2 <- METI[2:6]
+METI_Change <- METI2 / METI1 * 100
+METI_Change_df <- data.frame(Year1,METI_Change)
+
+MLIT1 <- MLIT[1:5]
+MLIT2 <- MLIT[2:6]
+MLIT_Change <- MLIT2 / MLIT1 * 100
+MLIT_Change_df <- data.frame(Year1,MLIT_Change)
+
+MOE1 <- MOE[1:5]
+MOE2 <- MOE[2:6]
+MOE_Change <- MOE2 / MOE1 * 100
+MOE_Change_df <- data.frame(Year1,MOE_Change)
+
+MOD1 <- MOD[1:5]
+MOD2 <- MOD[2:6]
+MOD_Change <- MOD2 / MOD1 * 100
+MOD_Change_df <- data.frame(Year1,MOD_Change)
+
+revenue_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = revenue_Change))+
+  labs(x = "年度",y ="歳入増減率")
+Imperial_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Imperial_Change))+
+  labs(x = "年度",y ="皇室費用増減率")
+
+Diet_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Diet_Change))+
+  labs(x = "年度",y ="国会費用増減率")
+
+Court_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Court_Change))+
+  labs(x = "年度",y ="裁判所費用増減率")
+
+Accounting_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Accounting_Change))+
+  labs(x = "年度",y ="会計検査院費用増減率")
+
+Cabinet_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Cabinet_Change))+
+  labs(x = "年度",y ="内閣費用増減率")
+
+Cabinet_Office_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Cabinet_Office_Change))+
+  labs(x = "年度",y ="内閣府費用増減率")
+
+MIC_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = MIC_Change))+
+  labs(x = "年度",y ="総務省費用増減率")
+
+Justice_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Justice_Change))+
+  labs(x = "年度",y ="法務省費用増減率")
+
+Foreign_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Foreign_Change))+
+  labs(x = "年度",y ="外務省費用増減率")
+
+Finance_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Finance_Change))+
+  labs(x = "年度",y ="財務省費用増減率")
+
+Education_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = Education_Change))+
+  labs(x = "年度",y ="文部科学省費用増減率")
+
+MHLW_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = MHLW_Change))+
+  labs(x = "年度",y ="厚生労働省費用増減率")
+
+MAFF_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = MAFF_Change))+
+  labs(x = "年度",y ="農林水産省費用増減率")
+
+METI_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = METI_Change))+
+  labs(x = "年度",y ="経済産業省費用増減率")
+
+MLIT_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = MLIT_Change))+
+  labs(x = "年度",y ="国土交通省増減率")
+
+MOE_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = MOE_Change))+
+  labs(x = "年度",y ="環境省費用増減率")
+
+MOD_Change_df |> 
+  ggplot() +
+  geom_line(aes(x = Year1 , y = MOD_Change))+
+  labs(x = "年度",y ="防衛省費用増減率")
 ```
