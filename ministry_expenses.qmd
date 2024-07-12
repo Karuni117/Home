@@ -408,8 +408,8 @@ Japan_df_long <- Japan_df_long |>
 options(repr.plot.width = 16,repr.plot.height = 9)
 ggplot(Japan_df_long, aes(x = Year, y = Value, fill = Category)) +
   geom_col(position = "dodge") +
-  labs(title = "日本国省庁別予算", x = "Year", y = "Value") +
-  theme_minimal(base_size = 12)
+  labs(title = "日本国省庁別予算", x = "年", y = "予算(円)") +
+  theme_light(base_size = 12)
 
 #折れ線グラフ予算増減率
 Japan_df_Change <- data.frame(Year1,Imperial_Change, Diet_Change, Court_Change, Accounting_Change, Cabinet_Change, Cabinet_Office_Change, MIC_Change, Justice_Change, Foreign_Change, Education_Change, MHLW_Change, MAFF_Change, METI_Change, MLIT_Change, MOE_Change, MOD_Change, revenue_Change)
@@ -434,10 +434,10 @@ Japan_df_Change_long <- Japan_df_Change_long |>
                            "MOD_Change"            = "防衛省",
                            "revenue_Change"        = "歳入"))
 
-options(repr.plot.width = 16,repr.plot.height = 9)
-ggplot(Japan_df_long, aes(x = Year, y = Value, color = Category)) +
-  geom_line(position = "dodge") +
-  labs(title = "日本国省庁別予算増減率(%)", x = "Year", y = "Value") +
-  theme_minimal(base_size = 12)
+Japan_df_Change_long |> 
+  ggplot(aes(x = Year1, y = Value, color = Category)) +
+  geom_line() +
+  labs(title = "日本国省庁別予算増減率(%)", x = "年", y = "予算増減率(%)") +
+  theme_light(base_size = 12)
 
 ```
