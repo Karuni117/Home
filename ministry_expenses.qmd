@@ -169,92 +169,92 @@ MOD_df |>
 Year1 <- Year[2:6]
 revenue1 <- revenue[1:5]
 revenue2 <- revenue[2:6]
-revenue_Change <- revenue2 / revenue1 
+revenue_Change <- revenue2 / revenue1 * 100 - 100
 revenue_Change_df <- data.frame(Year1,revenue_Change)
 
 Imperial1 <- Imperial[1:5]
 Imperial2 <- Imperial[2:6]
-Imperial_Change <- Imperial2 / Imperial1 
+Imperial_Change <- Imperial2 / Imperial1 * 100 - 100
 Imperial_Change_df <- data.frame(Year1,Imperial_Change)
 
 Diet1 <- Diet[1:5]
 Diet2 <- Diet[2:6]
-Diet_Change <- Diet2 / Diet1 
+Diet_Change <- Diet2 / Diet1 * 100 - 100
 Diet_Change_df <- data.frame(Year1,Diet_Change)
 
 Court1 <- Court[1:5]
 Court2 <- Court[2:6]
-Court_Change <- Court2 / Court1 
+Court_Change <- Court2 / Court1 * 100 - 100
 Court_Change_df <- data.frame(Year1,Court_Change)
 
 Accounting1 <- Accounting[1:5]
 Accounting2 <- Accounting[2:6]
-Accounting_Change <- Accounting2 /Accounting1 
+Accounting_Change <- Accounting2 /Accounting1 * 100 - 100
 Accounting_Change_df <- data.frame(Year1,Accounting_Change)
 
 Cabinet1 <- Cabinet[1:5]
 Cabinet2 <- Cabinet[2:6]
-Cabinet_Change <- Cabinet2 / Cabinet1 
+Cabinet_Change <- Cabinet2 / Cabinet1 * 100 - 100
 Cabinet_Change_df <- data.frame(Year1,Cabinet_Change)
 
 Cabinet_Office1 <- Cabinet_Office[1:5]
 Cabinet_Office2 <- Cabinet_Office[2:6]
-Cabinet_Office_Change <- Cabinet_Office2 /Cabinet_Office1 
+Cabinet_Office_Change <- Cabinet_Office2 /Cabinet_Office1 * 100 - 100
 Cabinet_Office_Change_df <- data.frame(Year1,Cabinet_Office_Change)
 
 MIC1 <- MIC[1:5]
 MIC2 <- MIC[2:6]
-MIC_Change <- MIC2 / MIC1 
+MIC_Change <- MIC2 / MIC1 * 100 - 100
 MIC_Change_df <- data.frame(Year1,MIC_Change)
 
 Justice1 <- Justice[1:5]
 Justice2 <- Justice[2:6]
-Justice_Change <- Justice2 / Justice1 
+Justice_Change <- Justice2 / Justice1 * 100 - 100
 Justice_Change_df <- data.frame(Year1,Justice_Change)
 
 Foreign1 <- Foreign[1:5]
 Foreign2 <- Foreign[2:6]
-Foreign_Change <- Foreign2 / Foreign1 
+Foreign_Change <- Foreign2 / Foreign1 * 100 - 100
 Foreign_Change_df <- data.frame(Year1,Foreign_Change)
 
 Finance1 <- Finance[1:5]
 Finance2 <- Finance[2:6]
-Finance_Change <- Finance2 /Finance1 
+Finance_Change <- Finance2 /Finance1 * 100 - 100
 Finance_Change_df <- data.frame(Year1,Finance_Change)
 
 Education1 <- Education[1:5]
 Education2 <- Education[2:6]
-Education_Change <- Education2 / Education1 
+Education_Change <- Education2 / Education1 * 100 - 100
 Education_Change_df <- data.frame(Year1,Education_Change)
 
 MHLW1 <- MHLW[1:5]
 MHLW2 <- MHLW[2:6]
-MHLW_Change <- MHLW2 / MHLW1 
+MHLW_Change <- MHLW2 / MHLW1 * 100 - 100
 MHLW_Change_df <- data.frame(Year1,MHLW_Change)
 
 MAFF1 <- MAFF[1:5]
 MAFF2 <- MAFF[2:6]
-MAFF_Change <- MAFF2 / MAFF1 
+MAFF_Change <- MAFF2 / MAFF1 * 100 - 100
 MAFF_Change_df <- data.frame(Year1,MAFF_Change)
 
 METI1 <- METI[1:5]
 METI2 <- METI[2:6]
-METI_Change <- METI2 / METI1 
+METI_Change <- METI2 / METI1 * 100 - 100
 METI_Change_df <- data.frame(Year1,METI_Change)
 
 MLIT1 <- MLIT[1:5]
 MLIT2 <- MLIT[2:6]
-MLIT_Change <- MLIT2 / MLIT1 
+MLIT_Change <- MLIT2 / MLIT1 * 100 - 100
 MLIT_Change_df <- data.frame(Year1,MLIT_Change)
 
 MOE1 <- MOE[1:5]
 MOE2 <- MOE[2:6]
-MOE_Change <- MOE2 / MOE1 
+MOE_Change <- MOE2 / MOE1 * 100 - 100
 MOE_Change_df <- data.frame(Year1,MOE_Change)
 
 MOD1 <- MOD[1:5]
 MOD2 <- MOD[2:6]
-MOD_Change <- MOD2 / MOD1 
+MOD_Change <- MOD2 / MOD1 * 100 - 100
 MOD_Change_df <- data.frame(Year1,MOD_Change)
 
 revenue_Change_df |> 
