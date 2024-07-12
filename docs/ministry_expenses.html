@@ -1135,8 +1135,8 @@ The following object is masked from 'package:tidyr':
 <span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">16</span>,<span class="at">repr.plot.height =</span> <span class="dv">9</span>)</span>
 <span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Japan_df_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
 <span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"日本国省庁別予算"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
-<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"日本国省庁別予算"</span>, <span class="at">x =</span> <span class="st">"年"</span>, <span class="at">y =</span> <span class="st">"予算(円)"</span>) <span class="sc">+</span></span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1167,15 +1167,11 @@ The following object is masked from 'package:tidyr':
 <span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"MOD_Change"</span>            <span class="ot">=</span> <span class="st">"防衛省"</span>,</span>
 <span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"revenue_Change"</span>        <span class="ot">=</span> <span class="st">"歳入"</span>))</span>
 <span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repr.plot.width =</span> <span class="dv">16</span>,<span class="at">repr.plot.height =</span> <span class="dv">9</span>)</span>
-<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Japan_df_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">color =</span> Category)) <span class="sc">+</span></span>
-<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"日本国省庁別予算増減率(%)"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
-<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Width not defined
-ℹ Set with `position_dodge(width = ...)`</code></pre>
-</div>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a>Japan_df_Change_long <span class="sc">|&gt;</span> </span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1, <span class="at">y =</span> Value, <span class="at">color =</span> Category)) <span class="sc">+</span></span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"日本国省庁別予算増減率(%)"</span>, <span class="at">x =</span> <span class="st">"年"</span>, <span class="at">y =</span> <span class="st">"予算増減率(%)"</span>) <span class="sc">+</span></span>
+<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
