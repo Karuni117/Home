@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-07-11">
+<meta name="dcterms.date" content="2024-07-13">
 
 <title>Quarto &amp; R Insight Hub - 2019年度～2024年度省庁の費用</title>
 <style>
@@ -297,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 11, 2024</p>
+      <p class="date">July 13, 2024</p>
     </div>
   </div>
   
@@ -323,48 +323,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Year            <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">2019</span> , <span class="dv">2020</span> , <span class="dv">2021</span> , <span class="dv">2022</span> , <span class="dv">2023</span> , <span class="dv">2024</span> )</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Imperial        <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11737259000</span>,<span class="dv">11573381000</span>,<span class="dv">12421478000</span>,<span class="dv">7308939000</span>,<span class="dv">6708028000</span>,<span class="dv">10141535000</span>)                           <span class="co">#皇室</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Diet            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">150041442000</span>,<span class="dv">128530580000</span>,<span class="dv">131238725000</span>,<span class="dv">128307623000</span>,<span class="dv">128221173000</span>,<span class="dv">129977426000</span>)                   <span class="co">#国会</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Court           <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">325574308000</span>,<span class="dv">326624181000</span>,<span class="dv">325367912000</span>,<span class="dv">322813550000</span>,<span class="dv">322216780000</span>,<span class="dv">330979009000</span>)                   <span class="co">#裁判所</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Accounting      <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17719957000</span>,<span class="dv">17099094000</span>,<span class="dv">16835647000</span>,<span class="dv">16928289000</span>,<span class="dv">15824524000</span>,<span class="dv">16282621000</span>)                         <span class="co">#会計検査院</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Cabinet         <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">111818789000</span>,<span class="dv">176103240000</span>,<span class="dv">380098139000</span>,<span class="dv">107172414000</span>,<span class="dv">106443244000</span>,<span class="dv">111459939000</span>)                   <span class="co">#内閣</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Cabinet_Office　<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3482340026000</span>,<span class="dv">4060788932000</span>,<span class="dv">3966939749000</span>,<span class="dv">3943292360000</span>,<span class="dv">4895957487000</span>,<span class="dv">5067112425000</span>)             <span class="co">#内閣府</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>MIC　　　　　　 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16629461781000</span>,<span class="dv">16769154908000</span>,<span class="dv">16595204879000</span>,<span class="dv">16462407984000</span>,<span class="dv">16862510254000</span>,<span class="dv">18210671996000</span>)       <span class="co">#総務省</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>Justice         <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">812915801000</span>,<span class="dv">820570628000</span>,<span class="dv">743140031000</span>,<span class="dv">743785213000</span>,<span class="dv">725004143000</span>,<span class="dv">740479227000</span>)                   <span class="co">#法務省</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>Foreign　　　　 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">730621571000</span>,<span class="dv">712007381000</span>,<span class="dv">695872889000</span>,<span class="dv">690400138000</span>,<span class="dv">743449543000</span>,<span class="dv">725715593000</span>)                   <span class="co">#外務省</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>Finance　　　　 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25474407983000</span>,<span class="dv">25157926086000</span>,<span class="dv">30524764680000</span>,<span class="dv">31168839658000</span>,<span class="dv">35476279656000</span>,<span class="dv">30277723415000</span>)       <span class="co">#財務省</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Education       <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5528688569000</span>,<span class="dv">5415218203000</span>,<span class="dv">5297997446000</span>,<span class="dv">5281844828000</span>,<span class="dv">5294138248000</span>,<span class="dv">5338440212000</span>)             <span class="co">#文部科学省</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>MHLW            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32035752063000</span>,<span class="dv">33036565690000</span>,<span class="dv">33137968525000</span>,<span class="dv">33516048600000</span>,<span class="dv">33168623527000</span>,<span class="dv">33819068928000</span>)       <span class="co">#厚生労働省</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>MAFF            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2236132295000</span>,<span class="dv">2217023010000</span>,<span class="dv">2123443214000</span>,<span class="dv">2104261924000</span>,<span class="dv">2093667543000</span>,<span class="dv">2093344256000</span>)             <span class="co">#農林水産省</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>METI            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1284169586000</span>,<span class="dv">1243458715000</span>,<span class="dv">916984752000</span>,<span class="dv">902389830000</span>,<span class="dv">880893568000</span>,<span class="dv">869511554000</span>)                 <span class="co">#経済産業省</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>MLIT            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7022326883000</span>,<span class="dv">6898261553000</span>,<span class="dv">6057791114000</span>,<span class="dv">6030726064000</span>,<span class="dv">6052431129000</span>,<span class="dv">6096484115000</span>)             <span class="co">#国土交通省</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>MOE             <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">345945274000</span>,<span class="dv">353720637000</span>,<span class="dv">323285636000</span>,<span class="dv">329146485000</span>,<span class="dv">325754157000</span>,<span class="dv">320712419000</span>)                   <span class="co">#環境省</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>MOD             <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5257439983000</span>,<span class="dv">5313345107000</span>,<span class="dv">5323546421000</span>,<span class="dv">5368725109000</span>,<span class="dv">6787965446000</span>,<span class="dv">7917176714000</span>)             <span class="co">#防衛省</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>revenue         <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">101457093570000</span>,<span class="dv">102657971326000</span>,<span class="dv">106609707875000</span>,<span class="dv">107596424558000</span>,<span class="dv">114381235569000</span>,<span class="dv">112571688422000</span>) <span class="co">#歳入</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>Japan_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year,Imperial, Diet, Court, Accounting, Cabinet, Cabinet_Office, MIC, Justice, Foreign, Education, MHLW, MAFF, METI, MLIT, MOE, MOD, revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'reshape2'
+
+The following object is masked from 'package:tidyr':
+
+    smiths</code></pre>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#データフレーム化</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Imperial_df       <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Imperial       )</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Diet_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Diet           )</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Court_df          <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Court          )</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Accounting_df     <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Accounting     )</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>Cabinet_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Cabinet        )</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Cabinet_Office )</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>MIC_df            <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MIC            )</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Justice_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Justice        )</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Foreign_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Foreign        )</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Finance_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Finance        )</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>Education_df      <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Education      )</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>MHLW_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MHLW           )</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>MAFF_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MAFF           )</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>METI_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , METI           )</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>MLIT_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MLIT           )</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>MOE_df            <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MOE            )</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>MOD_df            <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MOD            )</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>revenue_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , revenue        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Year            <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">2019</span> , <span class="dv">2020</span> , <span class="dv">2021</span> , <span class="dv">2022</span> , <span class="dv">2023</span> , <span class="dv">2024</span> )</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Imperial        <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11737259000</span>,<span class="dv">11573381000</span>,<span class="dv">12421478000</span>,<span class="dv">7308939000</span>,<span class="dv">6708028000</span>,<span class="dv">10141535000</span>)                           <span class="co">#皇室</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Diet            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">150041442000</span>,<span class="dv">128530580000</span>,<span class="dv">131238725000</span>,<span class="dv">128307623000</span>,<span class="dv">128221173000</span>,<span class="dv">129977426000</span>)                   <span class="co">#国会</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>Court           <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">325574308000</span>,<span class="dv">326624181000</span>,<span class="dv">325367912000</span>,<span class="dv">322813550000</span>,<span class="dv">322216780000</span>,<span class="dv">330979009000</span>)                   <span class="co">#裁判所</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Accounting      <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17719957000</span>,<span class="dv">17099094000</span>,<span class="dv">16835647000</span>,<span class="dv">16928289000</span>,<span class="dv">15824524000</span>,<span class="dv">16282621000</span>)                         <span class="co">#会計検査院</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>Cabinet         <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">111818789000</span>,<span class="dv">176103240000</span>,<span class="dv">380098139000</span>,<span class="dv">107172414000</span>,<span class="dv">106443244000</span>,<span class="dv">111459939000</span>)                   <span class="co">#内閣</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Cabinet_Office　<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3482340026000</span>,<span class="dv">4060788932000</span>,<span class="dv">3966939749000</span>,<span class="dv">3943292360000</span>,<span class="dv">4895957487000</span>,<span class="dv">5067112425000</span>)             <span class="co">#内閣府</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>MIC　　　　　　 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16629461781000</span>,<span class="dv">16769154908000</span>,<span class="dv">16595204879000</span>,<span class="dv">16462407984000</span>,<span class="dv">16862510254000</span>,<span class="dv">18210671996000</span>)       <span class="co">#総務省</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Justice         <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">812915801000</span>,<span class="dv">820570628000</span>,<span class="dv">743140031000</span>,<span class="dv">743785213000</span>,<span class="dv">725004143000</span>,<span class="dv">740479227000</span>)                   <span class="co">#法務省</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>Foreign　　　　 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">730621571000</span>,<span class="dv">712007381000</span>,<span class="dv">695872889000</span>,<span class="dv">690400138000</span>,<span class="dv">743449543000</span>,<span class="dv">725715593000</span>)                   <span class="co">#外務省</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>Finance　　　　 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25474407983000</span>,<span class="dv">25157926086000</span>,<span class="dv">30524764680000</span>,<span class="dv">31168839658000</span>,<span class="dv">35476279656000</span>,<span class="dv">30277723415000</span>)       <span class="co">#財務省</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Education       <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5528688569000</span>,<span class="dv">5415218203000</span>,<span class="dv">5297997446000</span>,<span class="dv">5281844828000</span>,<span class="dv">5294138248000</span>,<span class="dv">5338440212000</span>)             <span class="co">#文部科学省</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>MHLW            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32035752063000</span>,<span class="dv">33036565690000</span>,<span class="dv">33137968525000</span>,<span class="dv">33516048600000</span>,<span class="dv">33168623527000</span>,<span class="dv">33819068928000</span>)       <span class="co">#厚生労働省</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>MAFF            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2236132295000</span>,<span class="dv">2217023010000</span>,<span class="dv">2123443214000</span>,<span class="dv">2104261924000</span>,<span class="dv">2093667543000</span>,<span class="dv">2093344256000</span>)             <span class="co">#農林水産省</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>METI            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1284169586000</span>,<span class="dv">1243458715000</span>,<span class="dv">916984752000</span>,<span class="dv">902389830000</span>,<span class="dv">880893568000</span>,<span class="dv">869511554000</span>)                 <span class="co">#経済産業省</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>MLIT            <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7022326883000</span>,<span class="dv">6898261553000</span>,<span class="dv">6057791114000</span>,<span class="dv">6030726064000</span>,<span class="dv">6052431129000</span>,<span class="dv">6096484115000</span>)             <span class="co">#国土交通省</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>MOE             <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">345945274000</span>,<span class="dv">353720637000</span>,<span class="dv">323285636000</span>,<span class="dv">329146485000</span>,<span class="dv">325754157000</span>,<span class="dv">320712419000</span>)                   <span class="co">#環境省</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>MOD             <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5257439983000</span>,<span class="dv">5313345107000</span>,<span class="dv">5323546421000</span>,<span class="dv">5368725109000</span>,<span class="dv">6787965446000</span>,<span class="dv">7917176714000</span>)             <span class="co">#防衛省</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>revenue         <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">101457093570000</span>,<span class="dv">102657971326000</span>,<span class="dv">106609707875000</span>,<span class="dv">107596424558000</span>,<span class="dv">114381235569000</span>,<span class="dv">112571688422000</span>) <span class="co">#歳入</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>Japan_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year,Imperial, Diet, Court, Accounting, Cabinet, Cabinet_Office, MIC, Justice, Foreign, Education, MHLW, MAFF, METI, MLIT, MOE, MOD, revenue)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#データフレーム化</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>Imperial_df       <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Imperial       )</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>Diet_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Diet           )</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>Court_df          <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Court          )</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>Accounting_df     <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Accounting     )</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>Cabinet_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Cabinet        )</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Cabinet_Office )</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>MIC_df            <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MIC            )</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>Justice_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Justice        )</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>Foreign_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Foreign        )</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>Finance_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Finance        )</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>Education_df      <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , Education      )</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>MHLW_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MHLW           )</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>MAFF_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MAFF           )</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>METI_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , METI           )</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>MLIT_df           <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MLIT           )</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>MOE_df            <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MOE            )</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>MOD_df            <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , MOD            )</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>revenue_df        <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( Year , revenue        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <table class="table">
 <colgroup>
@@ -577,497 +585,560 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#グラフ化</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Japan_df |&gt; </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ggplot()+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_col(aes(x = Year, y = Japan_df[2:17]))</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>revenue_df <span class="sc">|&gt;</span> </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> revenue))<span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"歳入費用"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#グラフ化</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>revenue_df <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> revenue))<span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"歳入予算"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Imperial_df <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Imperial))<span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"皇室費用"</span> )<span class="co"># 皇室</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Diet_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Imperial_df <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Diet))<span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"国会費用"</span> )<span class="co"># 国会</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Imperial))<span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"皇室予算"</span> )<span class="co"># 皇室</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Court_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Diet_df <span class="sc">|&gt;</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Court))<span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"裁判所費用"</span> ) <span class="co"># 裁判所</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Diet))<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"国会予算"</span> )<span class="co"># 国会</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Accounting_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Court_df <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Accounting))<span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"会計検査院費用"</span> ) <span class="co"># 会計検査院</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Court))<span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"裁判所予算"</span> ) <span class="co"># 裁判所</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-5.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Cabinet_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Accounting_df <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Cabinet))<span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"内閣費用"</span> ) <span class="co"># 内閣</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Accounting))<span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"会計検査院予算"</span> ) <span class="co"># 会計検査院</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-6.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-5.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Cabinet_df <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Cabinet_Office))<span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"内閣府費用"</span> ) <span class="co"># 内閣府</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Cabinet))<span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"内閣予算"</span> ) <span class="co"># 内閣</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-7.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-6.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>MIC_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_df <span class="sc">|&gt;</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MIC))<span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"総務省費用"</span> ) <span class="co"># 総務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Cabinet_Office))<span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"内閣府予算"</span> ) <span class="co"># 内閣府</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-8.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-7.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Justice_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>MIC_df <span class="sc">|&gt;</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Justice))<span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"法務省費用"</span> ) <span class="co"># 法務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MIC))<span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"総務省予算"</span> ) <span class="co"># 総務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-9.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-8.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Foreign_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Justice_df <span class="sc">|&gt;</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Foreign))<span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"外務省費用"</span> ) <span class="co"># 外務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Justice))<span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"法務省予算"</span> ) <span class="co"># 法務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-10.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-9.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Finance_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Foreign_df <span class="sc">|&gt;</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Finance))<span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"財務省費用"</span> ) <span class="co"># 財務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Foreign))<span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"外務省予算"</span> ) <span class="co"># 外務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-11.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-10.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Education_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Finance_df <span class="sc">|&gt;</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Education))<span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"文部科学省費用"</span> ) <span class="co"># 文部科学省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Finance))<span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"財務省予算"</span> ) <span class="co"># 財務省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-12.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-11.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>MHLW_df <span class="sc">|&gt;</span>  </span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Education_df <span class="sc">|&gt;</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MHLW))<span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"厚生労働省費用"</span> ) <span class="co"># 厚生労働省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Education))<span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"文部科学省予算"</span> ) <span class="co"># 文部科学省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-13.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-12.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>MAFF_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>MHLW_df <span class="sc">|&gt;</span>  </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MAFF))<span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"農林水産省費用"</span> ) <span class="co"># 農林水産省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MHLW))<span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"厚生労働省予算"</span> ) <span class="co"># 厚生労働省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-14.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-13.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>METI_df <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>MAFF_df <span class="sc">|&gt;</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> METI))<span class="sc">+</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"経済産業省費用"</span> ) <span class="co"># 経済産業省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MAFF))<span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"農林水産省予算"</span> ) <span class="co"># 農林水産省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-15.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-14.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>MLIT_df <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>METI_df <span class="sc">|&gt;</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MLIT))<span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"国土交通省費用"</span> ) <span class="co"># 国土交通省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> METI))<span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"経済産業省予算"</span> ) <span class="co"># 経済産業省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-16.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-15.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>MOE_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>MLIT_df <span class="sc">|&gt;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MOE))<span class="sc">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"環境省費用"</span> ) <span class="co"># 環境省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MLIT))<span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"国土交通省予算"</span> ) <span class="co"># 国土交通省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-17.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-16.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>MOD_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>MOE_df <span class="sc">|&gt;</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MOD))<span class="sc">+</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"防衛省費用"</span> ) <span class="co"># 防衛省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MOE))<span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"環境省予算"</span> ) <span class="co"># 環境省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-3-18.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-17.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Year1 <span class="ot">&lt;-</span> Year[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>revenue1 <span class="ot">&lt;-</span> revenue[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>revenue2 <span class="ot">&lt;-</span> revenue[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>revenue_Change <span class="ot">&lt;-</span> revenue2 <span class="sc">/</span> revenue1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>revenue_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,revenue_Change)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>Imperial1 <span class="ot">&lt;-</span> Imperial[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>Imperial2 <span class="ot">&lt;-</span> Imperial[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>Imperial_Change <span class="ot">&lt;-</span> Imperial2 <span class="sc">/</span> Imperial1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>Imperial_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Imperial_Change)</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>Diet1 <span class="ot">&lt;-</span> Diet[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>Diet2 <span class="ot">&lt;-</span> Diet[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>Diet_Change <span class="ot">&lt;-</span> Diet2 <span class="sc">/</span> Diet1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>Diet_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Diet_Change)</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>Court1 <span class="ot">&lt;-</span> Court[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>Court2 <span class="ot">&lt;-</span> Court[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>Court_Change <span class="ot">&lt;-</span> Court2 <span class="sc">/</span> Court1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>Court_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Court_Change)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>Accounting1 <span class="ot">&lt;-</span> Accounting[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>Accounting2 <span class="ot">&lt;-</span> Accounting[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>Accounting_Change <span class="ot">&lt;-</span> Accounting2 <span class="sc">/</span>Accounting1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>Accounting_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Accounting_Change)</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>Cabinet1 <span class="ot">&lt;-</span> Cabinet[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>Cabinet2 <span class="ot">&lt;-</span> Cabinet[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>Cabinet_Change <span class="ot">&lt;-</span> Cabinet2 <span class="sc">/</span> Cabinet1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>Cabinet_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Cabinet_Change)</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>Cabinet_Office1 <span class="ot">&lt;-</span> Cabinet_Office[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>Cabinet_Office2 <span class="ot">&lt;-</span> Cabinet_Office[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_Change <span class="ot">&lt;-</span> Cabinet_Office2 <span class="sc">/</span>Cabinet_Office1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Cabinet_Office_Change)</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>MIC1 <span class="ot">&lt;-</span> MIC[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>MIC2 <span class="ot">&lt;-</span> MIC[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>MIC_Change <span class="ot">&lt;-</span> MIC2 <span class="sc">/</span> MIC1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>MIC_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MIC_Change)</span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>Justice1 <span class="ot">&lt;-</span> Justice[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>Justice2 <span class="ot">&lt;-</span> Justice[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>Justice_Change <span class="ot">&lt;-</span> Justice2 <span class="sc">/</span> Justice1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>Justice_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Justice_Change)</span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>Foreign1 <span class="ot">&lt;-</span> Foreign[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>Foreign2 <span class="ot">&lt;-</span> Foreign[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>Foreign_Change <span class="ot">&lt;-</span> Foreign2 <span class="sc">/</span> Foreign1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>Foreign_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Foreign_Change)</span>
-<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>Finance1 <span class="ot">&lt;-</span> Finance[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a>Finance2 <span class="ot">&lt;-</span> Finance[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a>Finance_Change <span class="ot">&lt;-</span> Finance2 <span class="sc">/</span>Finance1 <span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a>Finance_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Finance_Change)</span>
-<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a>Education1 <span class="ot">&lt;-</span> Education[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a>Education2 <span class="ot">&lt;-</span> Education[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a>Education_Change <span class="ot">&lt;-</span> Education2 <span class="sc">/</span> Education1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a>Education_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Education_Change)</span>
-<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a>MHLW1 <span class="ot">&lt;-</span> MHLW[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a>MHLW2 <span class="ot">&lt;-</span> MHLW[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a>MHLW_Change <span class="ot">&lt;-</span> MHLW2 <span class="sc">/</span> MHLW1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a>MHLW_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MHLW_Change)</span>
-<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a>MAFF1 <span class="ot">&lt;-</span> MAFF[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a>MAFF2 <span class="ot">&lt;-</span> MAFF[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a>MAFF_Change <span class="ot">&lt;-</span> MAFF2 <span class="sc">/</span> MAFF1 <span class="sc">*</span><span class="dv">100</span></span>
-<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>MAFF_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MAFF_Change)</span>
-<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a>METI1 <span class="ot">&lt;-</span> METI[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>METI2 <span class="ot">&lt;-</span> METI[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a>METI_Change <span class="ot">&lt;-</span> METI2 <span class="sc">/</span> METI1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a>METI_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,METI_Change)</span>
-<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a>MLIT1 <span class="ot">&lt;-</span> MLIT[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a>MLIT2 <span class="ot">&lt;-</span> MLIT[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>MLIT_Change <span class="ot">&lt;-</span> MLIT2 <span class="sc">/</span> MLIT1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a>MLIT_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MLIT_Change)</span>
-<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a>MOE1 <span class="ot">&lt;-</span> MOE[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>MOE2 <span class="ot">&lt;-</span> MOE[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a>MOE_Change <span class="ot">&lt;-</span> MOE2 <span class="sc">/</span> MOE1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>MOE_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MOE_Change)</span>
-<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a>MOD1 <span class="ot">&lt;-</span> MOD[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a>MOD2 <span class="ot">&lt;-</span> MOD[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
-<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a>MOD_Change <span class="ot">&lt;-</span> MOD2 <span class="sc">/</span> MOD1 <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a>MOD_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MOD_Change)</span>
-<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a>revenue_Change_df <span class="sc">|&gt;</span> </span>
-<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> revenue_Change))<span class="sc">+</span></span>
-<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"歳入増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>MOD_df <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> MOD))<span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>, <span class="at">y =</span> <span class="st">"防衛省予算"</span> ) <span class="co"># 防衛省</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-18.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Imperial_Change_df <span class="sc">|&gt;</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Imperial_Change))<span class="sc">+</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"皇室費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Year1 <span class="ot">&lt;-</span> Year[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>revenue1 <span class="ot">&lt;-</span> revenue[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>revenue2 <span class="ot">&lt;-</span> revenue[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>revenue_Change <span class="ot">&lt;-</span> revenue2 <span class="sc">/</span> revenue1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>revenue_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,revenue_Change)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>Imperial1 <span class="ot">&lt;-</span> Imperial[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>Imperial2 <span class="ot">&lt;-</span> Imperial[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>Imperial_Change <span class="ot">&lt;-</span> Imperial2 <span class="sc">/</span> Imperial1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>Imperial_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Imperial_Change)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>Diet1 <span class="ot">&lt;-</span> Diet[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>Diet2 <span class="ot">&lt;-</span> Diet[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>Diet_Change <span class="ot">&lt;-</span> Diet2 <span class="sc">/</span> Diet1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>Diet_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Diet_Change)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>Court1 <span class="ot">&lt;-</span> Court[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>Court2 <span class="ot">&lt;-</span> Court[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>Court_Change <span class="ot">&lt;-</span> Court2 <span class="sc">/</span> Court1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>Court_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Court_Change)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>Accounting1 <span class="ot">&lt;-</span> Accounting[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>Accounting2 <span class="ot">&lt;-</span> Accounting[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>Accounting_Change <span class="ot">&lt;-</span> Accounting2 <span class="sc">/</span>Accounting1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>Accounting_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Accounting_Change)</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>Cabinet1 <span class="ot">&lt;-</span> Cabinet[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>Cabinet2 <span class="ot">&lt;-</span> Cabinet[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>Cabinet_Change <span class="ot">&lt;-</span> Cabinet2 <span class="sc">/</span> Cabinet1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>Cabinet_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Cabinet_Change)</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>Cabinet_Office1 <span class="ot">&lt;-</span> Cabinet_Office[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>Cabinet_Office2 <span class="ot">&lt;-</span> Cabinet_Office[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_Change <span class="ot">&lt;-</span> Cabinet_Office2 <span class="sc">/</span>Cabinet_Office1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Cabinet_Office_Change)</span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>MIC1 <span class="ot">&lt;-</span> MIC[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>MIC2 <span class="ot">&lt;-</span> MIC[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>MIC_Change <span class="ot">&lt;-</span> MIC2 <span class="sc">/</span> MIC1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>MIC_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MIC_Change)</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>Justice1 <span class="ot">&lt;-</span> Justice[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>Justice2 <span class="ot">&lt;-</span> Justice[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>Justice_Change <span class="ot">&lt;-</span> Justice2 <span class="sc">/</span> Justice1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>Justice_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Justice_Change)</span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>Foreign1 <span class="ot">&lt;-</span> Foreign[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>Foreign2 <span class="ot">&lt;-</span> Foreign[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>Foreign_Change <span class="ot">&lt;-</span> Foreign2 <span class="sc">/</span> Foreign1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>Foreign_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Foreign_Change)</span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>Finance1 <span class="ot">&lt;-</span> Finance[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>Finance2 <span class="ot">&lt;-</span> Finance[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>Finance_Change <span class="ot">&lt;-</span> Finance2 <span class="sc">/</span>Finance1 <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>Finance_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Finance_Change)</span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a>Education1 <span class="ot">&lt;-</span> Education[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>Education2 <span class="ot">&lt;-</span> Education[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>Education_Change <span class="ot">&lt;-</span> Education2 <span class="sc">/</span> Education1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>Education_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,Education_Change)</span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>MHLW1 <span class="ot">&lt;-</span> MHLW[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>MHLW2 <span class="ot">&lt;-</span> MHLW[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>MHLW_Change <span class="ot">&lt;-</span> MHLW2 <span class="sc">/</span> MHLW1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>MHLW_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MHLW_Change)</span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>MAFF1 <span class="ot">&lt;-</span> MAFF[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a>MAFF2 <span class="ot">&lt;-</span> MAFF[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a>MAFF_Change <span class="ot">&lt;-</span> MAFF2 <span class="sc">/</span> MAFF1 <span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>MAFF_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MAFF_Change)</span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>METI1 <span class="ot">&lt;-</span> METI[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>METI2 <span class="ot">&lt;-</span> METI[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a>METI_Change <span class="ot">&lt;-</span> METI2 <span class="sc">/</span> METI1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>METI_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,METI_Change)</span>
+<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a>MLIT1 <span class="ot">&lt;-</span> MLIT[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>MLIT2 <span class="ot">&lt;-</span> MLIT[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a>MLIT_Change <span class="ot">&lt;-</span> MLIT2 <span class="sc">/</span> MLIT1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a>MLIT_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MLIT_Change)</span>
+<span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a>MOE1 <span class="ot">&lt;-</span> MOE[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a>MOE2 <span class="ot">&lt;-</span> MOE[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a>MOE_Change <span class="ot">&lt;-</span> MOE2 <span class="sc">/</span> MOE1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a>MOE_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MOE_Change)</span>
+<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a>MOD1 <span class="ot">&lt;-</span> MOD[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a>MOD2 <span class="ot">&lt;-</span> MOD[<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>MOD_Change <span class="ot">&lt;-</span> MOD2 <span class="sc">/</span> MOD1 <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a>MOD_Change_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Year1,MOD_Change)</span>
+<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a>revenue_Change_df <span class="sc">|&gt;</span> </span>
+<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> revenue_Change),</span>
+<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"歳入増減率"</span>)<span class="sc">+</span></span>
+<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-19.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Diet_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Imperial_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Diet_Change))<span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"国会費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Imperial_Change),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"皇室予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-20.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Court_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Diet_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Court_Change))<span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"裁判所費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Diet_Change),</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"国会予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-21.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Accounting_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Court_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Accounting_Change))<span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"会計検査院費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Court_Change),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"裁判所予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-5.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-22.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Cabinet_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Accounting_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Cabinet_Change))<span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"内閣費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Accounting_Change),</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"会計検査院予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-6.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-23.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Cabinet_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Cabinet_Office_Change))<span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"内閣府費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Cabinet_Change),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"内閣予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-7.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-24.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>MIC_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Cabinet_Office_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MIC_Change))<span class="sc">+</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"総務省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Cabinet_Office_Change),</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"内閣府予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-8.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-25.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Justice_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>MIC_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Justice_Change))<span class="sc">+</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"法務省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MIC_Change),</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"総務省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-9.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-26.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>Foreign_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>Justice_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Foreign_Change))<span class="sc">+</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"外務省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Justice_Change),</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"法務省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-10.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-27.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>Finance_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>Foreign_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Finance_Change))<span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"財務省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Foreign_Change),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"外務省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-11.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-28.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Education_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Finance_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Education_Change))<span class="sc">+</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"文部科学省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Finance_Change),</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"財務省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-12.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-29.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>MHLW_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Education_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MHLW_Change))<span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"厚生労働省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> Education_Change),</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"文部科学省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-13.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-30.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>MAFF_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>MHLW_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MAFF_Change))<span class="sc">+</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"農林水産省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MHLW_Change),</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"厚生労働省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-14.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-31.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>METI_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>MAFF_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> METI_Change))<span class="sc">+</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"経済産業省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MAFF_Change),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"農林水産省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-15.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-32.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>MLIT_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>METI_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MLIT_Change))<span class="sc">+</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"国土交通省増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> METI_Change),</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"経済産業省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-16.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-33.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>MOE_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>MLIT_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MOE_Change))<span class="sc">+</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"環境省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MLIT_Change),</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"国土交通省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-17.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-34.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>MOD_Change_df <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>MOE_Change_df <span class="sc">|&gt;</span> </span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MOD_Change))<span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"防衛省費用増減率"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MOE_Change),</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"環境省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-4-18.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-35.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>MOD_Change_df <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year1 , <span class="at">y =</span> MOD_Change),</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"年度"</span>,<span class="at">y =</span><span class="st">"防衛省予算増減率"</span>)<span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-36.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Japan_df_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(Japan_df, <span class="at">id.vars =</span> <span class="st">"Year"</span> , <span class="at">variable.name =</span> <span class="st">"Category"</span>, <span class="at">value.name =</span> <span class="st">"Value"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>Japan_df_long <span class="ot">&lt;-</span> Japan_df_long <span class="sc">|&gt;</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Category =</span> <span class="fu">recode</span>(Category,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Imperial"</span>       <span class="ot">=</span> <span class="st">"皇室"</span>,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Diet"</span>           <span class="ot">=</span> <span class="st">"国会"</span>,</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Court"</span>          <span class="ot">=</span> <span class="st">"裁判所"</span>,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Accounting"</span>     <span class="ot">=</span> <span class="st">"会計検査院"</span>,</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Cabinet"</span>        <span class="ot">=</span> <span class="st">"内閣"</span>,</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Cabinet_Office"</span> <span class="ot">=</span> <span class="st">"内閣府"</span>,</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"MIC"</span>            <span class="ot">=</span> <span class="st">"総務省"</span>,</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Justice"</span>        <span class="ot">=</span> <span class="st">"法務省"</span>,</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Foreign"</span>        <span class="ot">=</span> <span class="st">"外務省"</span>,</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Education"</span>      <span class="ot">=</span> <span class="st">"文部科学省"</span>,</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"MHLW"</span>           <span class="ot">=</span> <span class="st">"厚生労働省"</span>,</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"MAFF"</span>           <span class="ot">=</span> <span class="st">"農林水産省"</span>,</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"METI"</span>           <span class="ot">=</span> <span class="st">"経済産業省"</span>,</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"MLIT"</span>           <span class="ot">=</span> <span class="st">"国土交通省"</span>,</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"MOE"</span>            <span class="ot">=</span> <span class="st">"環境省"</span>,</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"MOD"</span>            <span class="ot">=</span> <span class="st">"防衛省"</span>,</span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"revenue"</span>        <span class="ot">=</span> <span class="st">"歳出"</span>))</span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Japan_df_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"日本国省庁別予算（2024）"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Value"</span>) <span class="sc">+</span></span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ministry_expenses_files/figure-html/unnamed-chunk-2-37.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
