@@ -4,6 +4,21 @@ date: last-modified
 format: html
 ---
 
+#### 資料
+財務省 [https://www.bb.mof.go.jp/hdocs/bxss010br6.html](https://www.bb.mof.go.jp/hdocs/bxss010br6.html)
+
+[令和元年度- https://www.bb.mof.go.jp/server/2019/csv/DL201911001.zip](https://www.bb.mof.go.jp/server/2019/csv/DL201911001.zip)
+
+[令和2年度- https://www.bb.mof.go.jp/server/2020/csv/DL202011001.zip](https://www.bb.mof.go.jp/server/2020/csv/DL202011001.zip)
+
+[令和3年度- https://www.bb.mof.go.jp/server/2021/csv/DL202011001.zip](https://www.bb.mof.go.jp/server/2021/csv/DL202111001.zip)
+
+[令和4年度- https://www.bb.mof.go.jp/server/2022/csv/DL202011001.zip](https://www.bb.mof.go.jp/server/2022/csv/DL202211001.zip)
+
+[令和5年度- https://www.bb.mof.go.jp/server/2023/csv/DL202011001.zip](https://www.bb.mof.go.jp/server/2023/csv/DL202311001.zip)
+
+[令和6年度- https://www.bb.mof.go.jp/server/2024/csv/DL202011001.zip](https://www.bb.mof.go.jp/server/2024/csv/DL202411001.zip)
+
 ```{r}
 library(tidyverse)
 library(reshape2)
