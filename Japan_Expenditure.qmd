@@ -93,5 +93,45 @@ trillion_2024  |>
 
 
 
-trillion_2024
+trillion_2019 |> 
+  ggplot() +
+  geom_col(aes(x = trillion_2019$目名 , y = trillion_2019$`平成31年度要求額(千円)` ))+
+  labs(x = "2019年度費用1兆円以上目名" , y = "2019年度要求額(千円)")+
+  theme_minimal(base_size = 7)+
+  theme(axis.text = element_text(angle = 35, vjust =  1 , hjust = 1))
+
+trillion_2020 |> 
+  ggplot() +
+  geom_col(aes(x = trillion_2020$目名 , y = trillion_2020$`令和2年度要求額(千円)` ))+
+  labs(x = "2020年度費用1兆円以上目名" , y = "2020年度要求額(千円)")+
+  theme_minimal(base_size = 7)+
+  theme(axis.text = element_text(angle = 35, vjust =  1 , hjust = 1))
+
+trillion_2021 |> 
+  ggplot() +
+  geom_col(aes(x = trillion_2021$目名 , y = trillion_2021$`令和3年度要求額(千円)`))+
+  labs(x = "2021年度費用1兆円以上目名" , y = "2021年度要求額(千円)")+
+  theme_minimal(base_size = 7)+
+  theme(axis.text = element_text(angle = 35, vjust =  1 , hjust = 1))
+
+trillion_2022 |> 
+  ggplot() +
+  geom_col(aes(x = trillion_2022$目名 , y = trillion_2022$`令和4年度要求額(千円)`))+
+  labs(x = "2022年度費用1兆円以上目名" , y = "2022年度要求額(千円)")+
+  theme_minimal(base_size = 7)+
+  theme(axis.text = element_text(angle = 35, vjust =  1 , hjust = 1))
+
+trillion_2023 |> 
+  ggplot() +
+  geom_col(aes(x = trillion_2023$目名 , y = trillion_2023$`令和5年度要求額(千円)`))+
+  labs(x = "2023年度費用1兆円以上目名" , y = "2023年度要求額(千円)")+
+  theme_minimal(base_size = 7)+
+  theme(axis.text = element_text(angle = 35, vjust =  1 , hjust = 1))
+
+trillion_2024 |> 
+  ggplot() +
+  geom_col(aes(x = trillion_2024$目名 , y = trillion_2024$令和6年度要求額 ))+
+  labs(x = "2024年度費用1兆円以上目名" , y = "2024年度要求額(千円)")+
+  theme_minimal(base_size = 7)+
+  theme(axis.text = element_text(angle = 35, vjust =  1 , hjust = 1))
 ```
