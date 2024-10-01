@@ -53,6 +53,7 @@ website:
               href: PC.qmd
             - text: "仮想通貨"
               href: Crypto.qmd
+          
             
 format: 
   html: 
